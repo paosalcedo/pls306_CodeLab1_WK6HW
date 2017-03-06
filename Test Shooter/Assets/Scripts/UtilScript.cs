@@ -30,7 +30,7 @@ public class UtilScript : MonoBehaviour {
 		return new Vector3(vec.x, vec.y, vec.z);
 	}
 
-	public static Vector3 CLoneModVector3 (
+	public static Vector3 CloneModVector3 (
 		Vector3 vec,
 		float xMod,
 		float yMod,

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour {
 
+	GameObject enemy;
+	GameObject[] enemies;
 	public float offsetX = 0;
 	public float offsetY = 0;
 
@@ -32,7 +34,7 @@ public class LevelLoader : MonoBehaviour {
 			for (int xPos = 0; xPos < line.Length; xPos++) {
 
 				if (line [xPos] == 'x') {
-					GameObject cube = Instantiate (Resources.Load("Prefabs/Tile01") as GameObject);
+					GameObject cube = Instantiate (Resources.Load ("Prefabs/Tile01") as GameObject);
 
 					cube.transform.parent = levelHolder.transform;
 
@@ -42,27 +44,35 @@ public class LevelLoader : MonoBehaviour {
 						0);
 				}
 			
-			//Instantiate player1
-			if (line [xPos] == 'p') { 
-				GameObject player = Instantiate (Resources.Load ("Prefabs/Player") as GameObject);
-				player.transform.position = new Vector3 (
+				//Instantiate player1
+				if (line [xPos] == 'p') { 
+					GameObject player = Instantiate (Resources.Load ("Prefabs/Player") as GameObject);
+					player.transform.position = new Vector3 (
 						xPos + offsetX, 
 						yPos + offsetY, 
 						0f);
-			}
-			//Instantiate player2
-			if (line [xPos] == 'b') {
-				GameObject enemy = Instantiate (Resources.Load ("Prefabs/Enemy") as GameObject); 
-				enemy.transform.position = new Vector3 (
+				}
+				//Instantiate player2
+				if (line [xPos] == 'e') {
+					GameObject enemy = Instantiate (Resources.Load ("Prefabs/Enemy") as GameObject); 
+					enemy.transform.position = new Vector3 (
 						xPos + offsetX, 
 						yPos + offsetY, 
 						0f);
+				}
+
+				//Instantiate ice tiles
+				if (line [xPos] == '-') {
+					GameObject tile = Instantiate (Resources.Load("Prefabs/icetile") as GameObject);
+					tile.transform.position = new Vector3(
+						xPos + offsetX,
+						yPos + offsetY,
+						0f
+						);
+				}		
+			
 			}
 			
-		}
-			
-		
-			//			Debug.Log(line);
 			yPos--;
 		}
 
@@ -73,7 +83,14 @@ public class LevelLoader : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.P)){
 			levelNum++;
-			SceneManager.LoadScene("Week5");
+			SceneManager.LoadScene("test");
 		}
 	}
+//
+//	void EndLevel ()
+//	{
+//		enemies = GameObject.FindGameObjectsWithTag("Enemy");
+//
+//		foreach (GameObject 
+//	}
 }

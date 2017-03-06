@@ -10,7 +10,7 @@ public class Wk6Manager : MonoBehaviour {
 	void Start () {
 		UtilScript.WriteStringToFile(Application.dataPath, "hello.txt", "hi!");
 	
-		transform.position = UtilScript.CLoneModVector3(transform.position, 0, 1, 0);	
+		transform.position = UtilScript.CloneModVector3(transform.position, 0, 1, 0);	
 	
 		Vector3 pos = UtilScript.CloneVector3(transform.position);
 	
