@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ScoreManagerScript : MonoBehaviour {
 
+	[SerializeField] GameObject highScoreMsg;
+
 	//consts for saving to Player Prefs
-	private const string PREF_TEST_KEY = "test";
 	private const string PREF_HIGH_SCORE = "highScorePref";
 
 	//private var for score
@@ -43,7 +44,7 @@ public class ScoreManagerScript : MonoBehaviour {
 
 		set{
 			//if we get a new high score, print "Confetti!!!"
-			Debug.Log("Confetti!!!");
+			Instantiate (highScoreMsg, new Vector2(0,0), Quaternion.identity);
 			highScore = value;
 			//save the new highScore to PlayerPrefs
 			PlayerPrefs.SetInt(PREF_HIGH_SCORE, highScore);
