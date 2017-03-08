@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAttackScript : MonoBehaviour {
 	public float timer;
+	[SerializeField]const float TIMER_RESET = 0.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +23,7 @@ public class EnemyAttackScript : MonoBehaviour {
 		fireball = Instantiate (Resources.Load ("Prefabs/Fireball") as GameObject);
 		fireball.transform.position = transform.position;
 		fireball.transform.rotation = transform.rotation;
-		timer = 5f;
+		timer = TIMER_RESET;
 		}
 	}
 }

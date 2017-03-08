@@ -48,9 +48,9 @@ public class PP_Player : MonoBehaviour {
 		if (myMoveAxis.magnitude < t_moveAxisReduce) { //this is when left stick is not pressed.
 			myMoveAxis = Vector2.zero;
 		} 
-//			"UN-COMMENT" ELSE CONDITION BELOW FOR BETTER KEYBOARD SUPPORT
+//			UN-COMMENT ELSE CONDITION BELOW FOR BETTER KEYBOARD SUPPORT
 			else {		
- 			myMoveAxis *= (myMoveAxis.magnitude - t_moveAxisReduce); 
+ 			//myMoveAxis *= (myMoveAxis.magnitude - t_moveAxisReduce); 
 			//adding Sutphin's deadzone fix
 //			myMoveAxis = myMoveAxis.normalized * 
 //						((myMoveAxis.magnitude - t_moveAxisReduce) / 

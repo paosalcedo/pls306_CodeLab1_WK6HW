@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour {
 
+	[SerializeField]GameObject crosshair;
 	GameObject enemy;
 	GameObject[] enemies;
 	public float offsetX = 0;
 	public float offsetY = 0;
+	public float tileZ;
 
 	public string[] fileNames;
 	public static int levelNum = 0;
@@ -17,6 +19,9 @@ public class LevelLoader : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
+		Cursor.visible = false;		
+		Cursor.lockState = CursorLockMode.Confined;
+
 		string fileName = fileNames [levelNum];
 
 		string filePath = Application.dataPath + "/" + fileName;
@@ -27,18 +32,21 @@ public class LevelLoader : MonoBehaviour {
 
 		int yPos = 0;
 
-
+		//Instantiate the crosshair.
+		GameObject crosshair = Instantiate (Resources.Load("Prefabs/Crosshair") as GameObject);
+	
+		//Read from level text files.
 		while (!sr.EndOfStream) {
 			string line = sr.ReadLine ();
 
 			for (int xPos = 0; xPos < line.Length; xPos++) {
 
 				if (line [xPos] == 'x') {
-					GameObject cube = Instantiate (Resources.Load ("Prefabs/Tile01") as GameObject);
+					GameObject wall = Instantiate (Resources.Load ("Prefabs/Tile01") as GameObject);
 
-					cube.transform.parent = levelHolder.transform;
+					wall.transform.parent = levelHolder.transform;
 
-					cube.transform.position = new Vector3 (
+					wall.transform.position = new Vector3 (
 						xPos + offsetX, 
 						yPos + offsetY, 
 						0);
@@ -51,6 +59,12 @@ public class LevelLoader : MonoBehaviour {
 						xPos + offsetX, 
 						yPos + offsetY, 
 						0f);
+					GameObject tile = Instantiate (Resources.Load("Prefabs/Icetile") as GameObject);
+					tile.transform.position = new Vector3(
+						xPos + offsetX,
+						yPos + offsetY,
+						tileZ
+						);
 				}
 				//Instantiate player2
 				if (line [xPos] == 'e') {
@@ -59,15 +73,21 @@ public class LevelLoader : MonoBehaviour {
 						xPos + offsetX, 
 						yPos + offsetY, 
 						0f);
+					GameObject tile = Instantiate (Resources.Load("Prefabs/Icetile") as GameObject);
+					tile.transform.position = new Vector3(
+						xPos + offsetX,
+						yPos + offsetY,
+						tileZ
+						);
 				}
 
 				//Instantiate ice tiles
 				if (line [xPos] == '-') {
-					GameObject tile = Instantiate (Resources.Load("Prefabs/icetile") as GameObject);
+					GameObject tile = Instantiate (Resources.Load("Prefabs/Icetile") as GameObject);
 					tile.transform.position = new Vector3(
 						xPos + offsetX,
 						yPos + offsetY,
-						0f
+						tileZ
 						);
 				}		
 			

@@ -21,6 +21,7 @@ public class BulletMover : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collide){
 		if (collide.gameObject.tag == "Enemy") {
+			
 			Destroy (gameObject);
 			Destroy (collide.gameObject);
 		} 
