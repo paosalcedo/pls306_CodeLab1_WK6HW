@@ -7,7 +7,7 @@ public class ScoreManagerScript : MonoBehaviour {
 	[SerializeField] GameObject highScoreMsg;
 
 	//consts for saving to Player Prefs
-	private const string PREF_HIGH_SCORE = "highScorePref";
+	private const string PREF_HIGH_SCORE_AGAIN = "highScorePref";
 
 	//private var for score
 	private int score;
@@ -32,13 +32,13 @@ public class ScoreManagerScript : MonoBehaviour {
 	}
 
 	//private var for highScore
-	private int highScore = 33;
+	private int highScore;
 
 	//Property for HighScore
 	public int HighScore{
 		get{
 			//before we get the highScore, load it from the PlayerPrefs
-			highScore = PlayerPrefs.GetInt(PREF_HIGH_SCORE);
+			highScore = PlayerPrefs.GetInt(PREF_HIGH_SCORE_AGAIN);
 			return highScore;
 		}
 
@@ -47,7 +47,7 @@ public class ScoreManagerScript : MonoBehaviour {
 			Debug.Log ("CONFETTI!!!");
 			highScore = value;
 			//save the new highScore to PlayerPrefs
-			PlayerPrefs.SetInt(PREF_HIGH_SCORE, highScore);
+			PlayerPrefs.SetInt(PREF_HIGH_SCORE_AGAIN, highScore);
 		}
 	}
 

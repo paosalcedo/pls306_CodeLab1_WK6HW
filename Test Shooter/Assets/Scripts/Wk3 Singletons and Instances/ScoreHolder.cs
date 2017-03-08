@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScoreHolder : MonoBehaviour {
 
-	private int score = 100;
+	private int score = 0;
 
 	public int Score{
 		get{

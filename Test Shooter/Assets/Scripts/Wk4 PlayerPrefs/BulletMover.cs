@@ -8,7 +8,7 @@ public class BulletMover : MonoBehaviour {
 	[SerializeField] float mySpeed; 
 	//private Vector2 myAimDir;
 	//[SerializeField] Rigidbody2D playerRigidBody;
-	private const int ENEMY_BASIC_VALUE = 100;
+	private const int ENEMY_BASIC_VALUE = 1;
 	
 	// Update is called once per frame
 	void Update () {
