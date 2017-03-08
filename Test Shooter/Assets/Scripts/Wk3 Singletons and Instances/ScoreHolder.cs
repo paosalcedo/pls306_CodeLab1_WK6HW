@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class ScoreHolder : MonoBehaviour {
 
-	//Make a private int score
-	private int score;
+	private int score = 100;
 
-	//Make a public property "Score" that prints to
-	//the console when you get/set it's value
 	public int Score{
 		get{
 			Debug.Log(score);

@@ -19,7 +19,7 @@ public class LevelLoader : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		Cursor.visible = false;		
+		Cursor.visible = true;		
 		Cursor.lockState = CursorLockMode.Confined;
 
 		string fileName = fileNames [levelNum];

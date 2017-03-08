@@ -80,7 +80,7 @@ public class PP_Player : MonoBehaviour {
 		var angle = (Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg) - 90f; 
 	    transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 //		Debug.Log(Mathf.Atan2(aimDir.y, aimDir.x));
-		Debug.Log(angle);
+//		Debug.Log(angle);
 //		float inputMouseX = Input.GetAxis("Mouse X");
 //		float inputMouseY = Input.GetAxis("Mouse Y");
 //

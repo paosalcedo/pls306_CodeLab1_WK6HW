@@ -21,7 +21,7 @@ public class BulletMover : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collide){
 		if (collide.gameObject.tag == "Enemy") {
-			
+			ScoreHolder.instance.Score += 100;
 			Destroy (gameObject);
 			Destroy (collide.gameObject);
 		} 
@@ -35,4 +35,6 @@ public class BulletMover : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+		
 }
+	

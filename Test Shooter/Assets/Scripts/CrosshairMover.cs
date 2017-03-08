@@ -17,7 +17,10 @@ public class CrosshairMover : MonoBehaviour {
 
 	void FollowMouse ()
 	{
-		var mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
+		var mousePos = Camera.main.ScreenToWorldPoint(
+			new Vector3(Input.mousePosition.x, 
+						Input.mousePosition.y, 
+						Camera.main.nearClipPlane));
 		transform.position = mousePos;
 	}
 
