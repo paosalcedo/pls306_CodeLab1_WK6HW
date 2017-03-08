@@ -44,7 +44,7 @@ public class ScoreManagerScript : MonoBehaviour {
 
 		set{
 			//if we get a new high score, print "Confetti!!!"
-			Instantiate (highScoreMsg, new Vector2(0,0), Quaternion.identity);
+			Debug.Log ("CONFETTI!!!");
 			highScore = value;
 			//save the new highScore to PlayerPrefs
 			PlayerPrefs.SetInt(PREF_HIGH_SCORE, highScore);
@@ -71,5 +71,6 @@ public class ScoreManagerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (highScore);
 	}
 }

@@ -26,7 +26,7 @@ public class EnemyBulletMover : MonoBehaviour {
 	private void MoveFireball (){ 
 //		transform.position += transform.up * fireballSpeed * Time.deltaTime; 
 		//rb.velocity = vectorToPlayer * fireballSpeed;
-		rb.AddForce(vectorToPlayer * fireballSpeed);
+		rb.AddForce(vectorToPlayer * fireballSpeed * Time.deltaTime);
 	}
 
 	private void FindPlayer(){

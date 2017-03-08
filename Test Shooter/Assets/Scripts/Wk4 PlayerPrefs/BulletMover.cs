@@ -8,7 +8,7 @@ public class BulletMover : MonoBehaviour {
 	[SerializeField] float mySpeed; 
 	//private Vector2 myAimDir;
 	//[SerializeField] Rigidbody2D playerRigidBody;
-
+	private const int ENEMY_BASIC_VALUE = 100;
 	
 	// Update is called once per frame
 	void Update () {
@@ -21,7 +21,7 @@ public class BulletMover : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collide){
 		if (collide.gameObject.tag == "Enemy") {
-			ScoreHolder.instance.Score += 100;
+			ScoreHolder.instance.Score += ENEMY_BASIC_VALUE;
 			Destroy (gameObject);
 			Destroy (collide.gameObject);
 		} 
